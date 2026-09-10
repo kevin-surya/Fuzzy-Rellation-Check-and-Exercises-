@@ -25,6 +25,66 @@ document.addEventListener('DOMContentLoaded', () => {
     const practiceMatrixDisplay = document.getElementById('practice-matrix-display');
     const practiceFeedback = document.getElementById('practice-feedback');
 
+    // ---- Examples Data (must be declared before renderExamples) ----
+    const EXAMPLES = [
+        {
+            name: 'Contoh Slide',
+            description: 'Relasi proximity & toleransi (2 komposisi)',
+            matrix: [
+                [1, 0.6, 0, 0.3, 0.2],
+                [0.6, 1, 0.5, 0.8, 0],
+                [0, 0.5, 1, 0, 0.4],
+                [0.3, 0.8, 0, 1, 0.5],
+                [0.2, 0, 0.4, 0.5, 1]
+            ]
+        },
+        {
+            name: 'Latihan 1',
+            description: 'Relasi klasik — tidak simetris',
+            matrix: [
+                [1, 1, 0, 0, 0],
+                [1, 1, 1, 0, 1],
+                [0, 0, 1, 0, 0],
+                [0, 1, 0, 1, 0],
+                [0, 1, 1, 0, 1]
+            ]
+        },
+        {
+            name: 'Latihan 2',
+            description: 'Relasi fuzzy — tidak simetris',
+            matrix: [
+                [1, 0.8, 0.4, 0.5, 0.6],
+                [0.5, 1, 0.4, 0.3, 0.9],
+                [0.4, 0.2, 1, 0.4, 0.4],
+                [0.5, 0.5, 0.3, 1, 0.3],
+                [0.4, 0.9, 0.4, 0.7, 1]
+            ]
+        },
+        {
+            name: 'Latihan 3',
+            description: 'Relasi proximity & toleransi (2 komposisi)',
+            matrix: [
+                [1, 0.6, 0, 0.2, 0.3],
+                [0.6, 1, 0.5, 0, 0.8],
+                [0, 0.5, 1, 0, 0],
+                [0.2, 0, 0, 1, 0.5],
+                [0.3, 0.8, 0, 0.5, 1]
+            ]
+        },
+        {
+            name: 'Latihan 4',
+            description: 'Relasi ekuivalensi (6×6)',
+            matrix: [
+                [1, 0.2, 1, 0.6, 0.2, 0.6],
+                [0.2, 1, 0.2, 0.2, 0.8, 0.2],
+                [1, 0.2, 1, 0.6, 0.2, 0.6],
+                [0.6, 0.2, 0.6, 1, 0.2, 0.8],
+                [0.2, 0.8, 0.2, 0.2, 1, 0.2],
+                [0.6, 0.2, 0.6, 0.8, 0.2, 1]
+            ]
+        }
+    ];
+
     // ---- Initialize ----
     generateMatrixGrid();
     renderExamples();
@@ -256,67 +316,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================================
-    //  EXAMPLES
+    //  EXAMPLES (data moved to top of file)
     // ============================================================
-
-    const EXAMPLES = [
-        {
-            name: 'Contoh Slide',
-            description: 'Relasi proximity & toleransi (2 komposisi)',
-            matrix: [
-                [1, 0.6, 0, 0.3, 0.2],
-                [0.6, 1, 0.5, 0.8, 0],
-                [0, 0.5, 1, 0, 0.4],
-                [0.3, 0.8, 0, 1, 0.5],
-                [0.2, 0, 0.4, 0.5, 1]
-            ]
-        },
-        {
-            name: 'Latihan 1',
-            description: 'Relasi klasik — tidak simetris',
-            matrix: [
-                [1, 1, 0, 0, 0],
-                [1, 1, 1, 0, 1],
-                [0, 0, 1, 0, 0],
-                [0, 1, 0, 1, 0],
-                [0, 1, 1, 0, 1]
-            ]
-        },
-        {
-            name: 'Latihan 2',
-            description: 'Relasi fuzzy — tidak simetris',
-            matrix: [
-                [1, 0.8, 0.4, 0.5, 0.6],
-                [0.5, 1, 0.4, 0.3, 0.9],
-                [0.4, 0.2, 1, 0.4, 0.4],
-                [0.5, 0.5, 0.3, 1, 0.3],
-                [0.4, 0.9, 0.4, 0.7, 1]
-            ]
-        },
-        {
-            name: 'Latihan 3',
-            description: 'Relasi proximity & toleransi (2 komposisi)',
-            matrix: [
-                [1, 0.6, 0, 0.2, 0.3],
-                [0.6, 1, 0.5, 0, 0.8],
-                [0, 0.5, 1, 0, 0],
-                [0.2, 0, 0, 1, 0.5],
-                [0.3, 0.8, 0, 0.5, 1]
-            ]
-        },
-        {
-            name: 'Latihan 4',
-            description: 'Relasi ekuivalensi (6×6)',
-            matrix: [
-                [1, 0.2, 1, 0.6, 0.2, 0.6],
-                [0.2, 1, 0.2, 0.2, 0.8, 0.2],
-                [1, 0.2, 1, 0.6, 0.2, 0.6],
-                [0.6, 0.2, 0.6, 1, 0.2, 0.8],
-                [0.2, 0.8, 0.2, 0.2, 1, 0.2],
-                [0.6, 0.2, 0.6, 0.8, 0.2, 1]
-            ]
-        }
-    ];
 
     function renderExamples() {
         let html = '';
