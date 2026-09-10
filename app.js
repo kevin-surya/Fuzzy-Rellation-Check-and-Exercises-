@@ -623,7 +623,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Scroll spy for nav
-        const sections = ['analyzer', 'examples', 'practice', 'theory'];
+        const sections = ['analyzer', 'examples', 'practice', 'theory', 'team'];
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY + 100;
             for (let i = sections.length - 1; i >= 0; i--) {
