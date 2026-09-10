@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Analisis Sifat Relasi Fuzzy - Refleksif, Simetris, Transitif, Proximity, Toleransi. Tools interaktif untuk mata kuliah Pemodelan Fuzzy.">
+    <title>Analisis Relasi Fuzzy | Pemodelan Fuzzy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+        <div class="bg-orb bg-orb-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <rect x="2" y="2" width="12" height="12" rx="2" fill="url(#grad1)" opacity="0.9"/>
+                            <rect x="18" y="2" width="12" height="12" rx="2" fill="url(#grad1)" opacity="0.6"/>
+                            <rect x="2" y="18" width="12" height="12" rx="2" fill="url(#grad1)" opacity="0.6"/>
+                            <rect x="18" y="18" width="12" height="12" rx="2" fill="url(#grad1)" opacity="0.9"/>
+                            <defs>
+                                <linearGradient id="grad1" x1="0" y1="0" x2="30" y2="30">
+                                    <stop offset="0%" stop-color="#a78bfa"/>
+                                    <stop offset="100%" stop-color="#6366f1"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="logo-title">Fuzzy Relation</h1>
+                        <p class="logo-subtitle">Analisis Sifat Relasi</p>
+                    </div>
+                </div>
+                <nav class="nav">
+                    <a href="#analyzer" class="nav-link active">Analyzer</a>
+                    <a href="#examples" class="nav-link">Contoh</a>
+                    <a href="#practice" class="nav-link">Latihan</a>
+                    <a href="#theory" class="nav-link">Teori</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">Pemodelan Fuzzy — Week 3</div>
+                    <h2 class="hero-title">Analisis Sifat <span class="gradient-text">Relasi Fuzzy</span></h2>
+                    <p class="hero-desc">Periksa sifat refleksif, simetris, transitif, proximity, dan toleransi pada matriks relasi fuzzy secara interaktif.</p>
+                    <div class="hero-actions">
+                        <a href="#analyzer" class="btn btn-primary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+                            Mulai Analisis
+                        </a>
+                        <a href="#examples" class="btn btn-outline">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                            Lihat Contoh
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analyzer Section -->
+        <section id="analyzer" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Matrix <span class="gradient-text">Analyzer</span></h2>
+                    <p class="section-desc">Masukkan matriks relasi fuzzy untuk dianalisis sifat-sifatnya</p>
+                </div>
+
+                <div class="analyzer-grid">
+                    <!-- Input Panel -->
+                    <div class="card card-input">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                                Input Matriks
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="input-controls">
+                                <div class="control-group">
+                                    <label class="control-label">Ukuran Matriks (n × n)</label>
+                                    <div class="size-selector">
+                                        <button class="size-btn" data-size="3">3×3</button>
+                                        <button class="size-btn" data-size="4">4×4</button>
+                                        <button class="size-btn active" data-size="5">5×5</button>
+                                        <button class="size-btn" data-size="6">6×6</button>
+                                        <button class="size-btn" data-size="7">7×7</button>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Tipe Nilai</label>
+                                    <div class="type-selector">
+                                        <button class="type-btn active" data-type="fuzzy">Fuzzy [0,1]</button>
+                                        <button class="type-btn" data-type="classic">Klasik {0,1}</button>
+                                    </div>
+                                </div>
+                                <div class="action-buttons">
+                                    <button id="btn-random" class="btn btn-secondary">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2 4 4-4 4"/><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2"/><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/><path d="m18 14 4 4-4 4"/></svg>
+                                        Random
+                                    </button>
+                                    <button id="btn-random-symmetric" class="btn btn-secondary">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-9L21 12m0 0-4.5 4.5M21 12H7.5"/></svg>
+                                        Random Simetris
+                                    </button>
+                                    <button id="btn-clear" class="btn btn-ghost">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+                                        Bersihkan
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="matrix-container" class="matrix-container">
+                                <!-- Matrix grid will be generated by JS -->
+                            </div>
+                            <button id="btn-analyze" class="btn btn-primary btn-analyze">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+                                Analisis Relasi
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Result Panel -->
+                    <div class="card card-result" id="result-panel" style="display:none;">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+                                Hasil Analisis
+                            </h3>
+                        </div>
+                        <div class="card-body" id="result-content">
+                            <!-- Results will be injected here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Examples Section -->
+        <section id="examples" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Contoh <span class="gradient-text">Relasi</span></h2>
+                    <p class="section-desc">Contoh matriks relasi dengan berbagai sifat — klik untuk menganalisis</p>
+                </div>
+                <div class="examples-grid" id="examples-grid">
+                    <!-- Generated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Section -->
+        <section id="practice" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Mode <span class="gradient-text">Latihan</span></h2>
+                    <p class="section-desc">Generate soal latihan random dan uji pemahamanmu</p>
+                </div>
+                <div class="practice-content">
+                    <div class="card card-practice">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                                Latihan Interaktif
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="practice-controls">
+                                <div class="control-group">
+                                    <label class="control-label">Tipe Soal</label>
+                                    <div class="type-selector">
+                                        <button class="practice-type-btn active" data-ptype="random">Random</button>
+                                        <button class="practice-type-btn" data-ptype="proximity">Proximity</button>
+                                        <button class="practice-type-btn" data-ptype="tolerance">Toleransi</button>
+                                        <button class="practice-type-btn" data-ptype="equivalence">Ekuivalensi</button>
+                                    </div>
+                                </div>
+                                <button id="btn-generate-practice" class="btn btn-primary">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0 3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+                                    Generate Soal
+                                </button>
+                            </div>
+
+                            <div id="practice-area" style="display:none;">
+                                <div class="practice-matrix-display" id="practice-matrix-display">
+                                    <!-- Practice matrix will be shown here -->
+                                </div>
+                                <div class="practice-question" id="practice-question">
+                                    <h4>Tentukan sifat-sifat relasi di atas:</h4>
+                                    <div class="practice-options">
+                                        <label class="checkbox-card" id="chk-refleksif-label">
+                                            <input type="checkbox" id="chk-refleksif">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="checkbox-text">Refleksif</span>
+                                        </label>
+                                        <label class="checkbox-card" id="chk-simetris-label">
+                                            <input type="checkbox" id="chk-simetris">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="checkbox-text">Simetris</span>
+                                        </label>
+                                        <label class="checkbox-card" id="chk-transitif-label">
+                                            <input type="checkbox" id="chk-transitif">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="checkbox-text">Transitif</span>
+                                        </label>
+                                        <label class="checkbox-card" id="chk-proximity-label">
+                                            <input type="checkbox" id="chk-proximity">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="checkbox-text">Proximity</span>
+                                        </label>
+                                        <label class="checkbox-card" id="chk-toleransi-label">
+                                            <input type="checkbox" id="chk-toleransi">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="checkbox-text">Toleransi</span>
+                                        </label>
+                                    </div>
+                                    <div class="practice-actions">
+                                        <button id="btn-check-answer" class="btn btn-primary">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+                                            Periksa Jawaban
+                                        </button>
+                                        <button id="btn-show-solution" class="btn btn-outline">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                            Lihat Solusi
+                                        </button>
+                                    </div>
+                                </div>
+                                <div id="practice-feedback" class="practice-feedback" style="display:none;">
+                                    <!-- Feedback will be shown here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Score Card -->
+                    <div class="card card-score">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 6 9 6 9z"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 18 9 18 9z"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                                Skor
+                            </h3>
+                        </div>
+                        <div class="card-body score-body">
+                            <div class="score-display">
+                                <div class="score-ring">
+                                    <svg viewBox="0 0 120 120">
+                                        <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+                                        <circle id="score-ring-circle" cx="60" cy="60" r="52" fill="none" stroke="url(#scoreGrad)" stroke-width="8" stroke-linecap="round" stroke-dasharray="326.73" stroke-dashoffset="326.73" transform="rotate(-90 60 60)"/>
+                                        <defs>
+                                            <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                <stop offset="0%" stop-color="#a78bfa"/>
+                                                <stop offset="100%" stop-color="#6366f1"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <div class="score-number" id="score-number">0</div>
+                                </div>
+                                <p class="score-label">Benar dari <span id="score-total">0</span> soal</p>
+                            </div>
+                            <div class="score-stats">
+                                <div class="stat-item">
+                                    <span class="stat-icon stat-correct">✓</span>
+                                    <span class="stat-value" id="stat-correct">0</span>
+                                    <span class="stat-label">Benar</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-icon stat-wrong">✗</span>
+                                    <span class="stat-value" id="stat-wrong">0</span>
+                                    <span class="stat-label">Salah</span>
+                                </div>
+                            </div>
+                            <button id="btn-reset-score" class="btn btn-ghost btn-small">Reset Skor</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Theory Section -->
+        <section id="theory" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Ringkasan <span class="gradient-text">Teori</span></h2>
+                    <p class="section-desc">Definisi dan rumus yang digunakan dalam analisis relasi fuzzy</p>
+                </div>
+                <div class="theory-grid">
+                    <div class="theory-card">
+                        <div class="theory-icon theory-icon-1">R</div>
+                        <h3>Refleksif</h3>
+                        <p class="theory-formula">μ<sub>R</sub>(x<sub>i</sub>, x<sub>i</sub>) = 1, ∀i</p>
+                        <p class="theory-desc">Setiap elemen berelasi dengan dirinya sendiri dengan derajat keanggotaan 1. Diagonal utama matriks semuanya bernilai 1.</p>
+                    </div>
+                    <div class="theory-card">
+                        <div class="theory-icon theory-icon-2">S</div>
+                        <h3>Simetris</h3>
+                        <p class="theory-formula">μ<sub>R</sub>(x<sub>i</sub>, x<sub>j</sub>) = μ<sub>R</sub>(x<sub>j</sub>, x<sub>i</sub>), ∀i,j</p>
+                        <p class="theory-desc">Relasi bersifat dua arah. Matriks bersifat simetris terhadap diagonal utama: R = R<sup>T</sup>.</p>
+                    </div>
+                    <div class="theory-card">
+                        <div class="theory-icon theory-icon-3">T</div>
+                        <h3>Transitif</h3>
+                        <p class="theory-formula">μ<sub>R</sub>(x<sub>i</sub>, x<sub>k</sub>) ≥ min(μ<sub>R</sub>(x<sub>i</sub>, x<sub>j</sub>), μ<sub>R</sub>(x<sub>j</sub>, x<sub>k</sub>)), ∀i,j,k</p>
+                        <p class="theory-desc">Menggunakan komposisi max-min. Jika A berelasi dengan B dan B berelasi dengan C, maka A harus berelasi dengan C.</p>
+                    </div>
+                    <div class="theory-card">
+                        <div class="theory-icon theory-icon-4">P</div>
+                        <h3>Proximity</h3>
+                        <p class="theory-formula">Refleksif ∧ Simetris ∧ ¬Transitif</p>
+                        <p class="theory-desc">Relasi yang bersifat refleksif dan simetris, tetapi tidak transitif. Menggambarkan "kedekatan" antar elemen.</p>
+                    </div>
+                    <div class="theory-card">
+                        <div class="theory-icon theory-icon-5">τ</div>
+                        <h3>Toleransi</h3>
+                        <p class="theory-formula">Proximity + R<sup>k</sup> transitif (k ≤ n−1)</p>
+                        <p class="theory-desc">Relasi proximity yang dapat menjadi relasi ekuivalensi setelah paling banyak (n−1) kali komposisi max-min dengan dirinya sendiri.</p>
+                    </div>
+                    <div class="theory-card">
+                        <div class="theory-icon theory-icon-6">E</div>
+                        <h3>Ekuivalensi</h3>
+                        <p class="theory-formula">Refleksif ∧ Simetris ∧ Transitif</p>
+                        <p class="theory-desc">Relasi yang memenuhi ketiga sifat sekaligus. Merupakan relasi partisi pada himpunan fuzzy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Tugas Kelompok — Pemodelan Fuzzy — Semester 7 — Universitas Sebelas Maret</p>
+        </div>
+    </footer>
+
+    <script src="fuzzy.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
